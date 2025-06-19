@@ -24,19 +24,6 @@ for tool in $tools; do
             printf "# File automatically generated on $(date)\n" >> ./src/tools/$tool/.env.docker
             printf "# See .env.sample for more information\n" >> ./src/tools/$tool/.env.docker
         fi
-
-        # Install dependencies for the tool service
-        printf ">> Installing dependencies for $tool service...\n"
-        if [ ! -d ./src/tools/$tool/node_modules ]; then
-            npm ci --prefix=./src/tools/$tool
-            status=$?
-            if [ $status -ne 0 ]; then
-                printf "$tool dependencies installation failed with exit code $status. Exiting.\n"
-                exit $status
-            fi
-        else
-            printf "Dependencies for $tool service already installed.\n"
-        fi
     else
         printf "No .env.sample found for $tool, skipping...\n"
     fi

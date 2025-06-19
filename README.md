@@ -90,6 +90,14 @@ The script will do the following:
 - Build the Docker images for all the MCP servers
 - Configure all the .env files with the correct settings for local AX
 
+In order to run the application locally, ensure you have the following installed before running the preview script:
+- **[Git](https://git-scm.com/downloads)** (for cloning the repository)
+- **[Node.js](https://nodejs.org/en/download)** (for the UI and API services)
+- **[Docker](https://www.docker.com/)** (for the MCP servers and using DMR - Docker Model Runner)
+  - Make sure to enable the **[DMR](https://docs.docker.com/ai/model-runner/#enable-docker-model-runner)** in Docker Desktop settings.
+- **[Powershell 7+ (pwsh)](https://github.com/powershell/powershell)** - For Windows users only.
+  - **Important**: Ensure you can run `pwsh.exe` from a PowerShell terminal. If this fails, you likely need to [upgrade PowerShell](https://aka.ms/PSWindows)
+
 
 <details open>
   <summary>For Linux and macOS users</summary>
@@ -101,8 +109,6 @@ The script will do the following:
 <br>
 <details>
   <summary>For Windows users</summary>
-
-**[Powershell 7+ (pwsh)](https://github.com/powershell/powershell)** is needed to run the script. **Important**: Ensure you can run `pwsh.exe` from a PowerShell terminal. If this fails, you likely need to [upgrade PowerShell](https://aka.ms/PSWindows).
 
 ```powershell
 iex "& { $(irm https://aka.ms/azure-ai-travel-agents-preview-win) }"

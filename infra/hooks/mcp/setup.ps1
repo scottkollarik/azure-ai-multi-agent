@@ -22,14 +22,6 @@ foreach ($tool in $tools) {
             Add-Content $envDockerFile "# File automatically generated on $(Get-Date)"
             Add-Content $envDockerFile "# See .env.sample for more information"
         }
-        # Install dependencies for the tool service
-        Write-Host ">> Installing dependencies for $tool service..."
-        $nodeModules = "./src/tools/$tool/node_modules"
-        if (-not (Test-Path $nodeModules)) {
-            npm ci --prefix=./src/tools/$tool
-        } else {
-            Write-Host "Dependencies for $tool service already installed."
-        }
     } else {
         Write-Host "No .env.sample found for $tool, skipping..."
     }

@@ -16,7 +16,7 @@ BOLD='\033[1m'
 NC='\033[0m' # No Color
 
 
-# Parse arguments for --skip-prereqs or --skip-prerequisites
+# Parse arguments for --skip-checks
 SKIP_PREREQS=0
 for arg in "$@"; do
   case $arg in
@@ -34,6 +34,14 @@ if [ $SKIP_PREREQS -eq 0 ]; then
   # Unicode checkmark and cross
   CHECK='\xE2\x9C\x94' # ✔
   CROSS='\xE2\x9D\x8C' # ❌
+
+  if command -v git --version >/dev/null 2>&1; then
+    GIT_VERSION=$(git --version)
+    printf "${GREEN}${CHECK} Git version: ${GIT_VERSION}${NC}\n"
+  else
+    printf "${RED}${CROSS} Git is not installed. Please install Git (https://git-scm.com/)${NC}\n"
+    MISSING=1
+  fi
 
   if command -v node >/dev/null 2>&1; then
     NODE_VERSION=$(node --version)
