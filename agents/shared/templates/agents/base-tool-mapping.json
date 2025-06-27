@@ -1,0 +1,71 @@
+{
+  "tool_mappings": {
+    "echo-ping": {
+      "purpose": "testing_and_validation",
+      "priority": "low",
+      "usage": "Connectivity testing and basic validation",
+      "required": false
+    },
+    "web-search": {
+      "purpose": "live_information",
+      "priority": "medium",
+      "usage": "Search for current information and data",
+      "required": false,
+      "tools": [
+        "search_web",
+        "get_latest_information",
+        "find_current_events"
+      ]
+    },
+    "code-evaluation": {
+      "purpose": "custom_logic",
+      "priority": "low",
+      "usage": "Execute custom logic and scripts when needed",
+      "required": false,
+      "tools": [
+        "execute_code",
+        "calculate_values",
+        "process_data"
+      ]
+    },
+    "model-inference": {
+      "purpose": "local_ai",
+      "priority": "low",
+      "usage": "Local AI processing and inference",
+      "required": false,
+      "tools": [
+        "local_inference",
+        "custom_processing"
+      ]
+    }
+  },
+  "workflow_integration": {
+    "basic_query_workflow": [
+      "echo-ping"
+    ],
+    "information_search_workflow": [
+      "web-search"
+    ],
+    "custom_processing_workflow": [
+      "code-evaluation",
+      "model-inference"
+    ]
+  },
+  "common_patterns": {
+    "validation": {
+      "description": "Basic input validation and testing",
+      "tools": ["echo-ping"],
+      "workflow": "basic_query_workflow"
+    },
+    "information_gathering": {
+      "description": "Gather current information from web sources",
+      "tools": ["web-search"],
+      "workflow": "information_search_workflow"
+    },
+    "custom_processing": {
+      "description": "Execute custom logic or local AI processing",
+      "tools": ["code-evaluation", "model-inference"],
+      "workflow": "custom_processing_workflow"
+    }
+  }
+} 

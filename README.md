@@ -148,6 +148,82 @@ The deployment process will take a few minutes. Once it's done, you'll see the U
 
 You can now open the web app in your browser and start chatting with the bot.
 
+## Infrastructure Management (CLI-First Approach)
+
+For developers who prefer a CLI-first approach to infrastructure management, we provide comprehensive scripts for deploying and managing Azure resources.
+
+### 🚀 Quick Infrastructure Setup
+
+1. **Authenticate with Azure:**
+   ```bash
+   az login
+   ```
+
+2. **Deploy Infrastructure:**
+   ```bash
+   ./scripts/deploy-infrastructure.sh
+   ```
+
+3. **Configure Environment:**
+   ```bash
+   ./scripts/configure-environment.sh
+   ```
+
+4. **Clean Up (when done):**
+   ```bash
+   ./scripts/teardown-infrastructure.sh
+   ```
+
+### 📋 What the Infrastructure Scripts Create
+
+- **Resource Group**: `rg-azure-ai-travel-agents-dev`
+- **Azure OpenAI Service**: With GPT-4o-mini deployment
+- **Azure Container Registry**: For storing container images
+- **Log Analytics Workspace**: For centralized logging
+- **Application Insights**: For application monitoring
+- **Container Apps Environment**: For hosting containerized services
+- **Managed Identities**: For secure access to Azure services
+
+### 🏷️ Resource Naming & Tagging
+
+All resources follow Azure standard naming conventions:
+- Resource Group: `rg-azure-ai-travel-agents-dev`
+- Cognitive Services: `cog-{unique-token}`
+- Container Registry: `cr{project-name}{unique-token}`
+- Container Apps Environment: `cae-{project-name}{unique-token}`
+
+All resources are tagged with:
+- `Project=azure-ai-travel-agents`
+- `Environment=dev`
+- `ResourceType=AI-Travel-Agents`
+- `ManagedBy=Azure-CLI`
+- `Owner=Development`
+- `CostCenter=AI-Development`
+
+### 🔐 Security & Environment Management
+
+- **Managed Identities**: Secure access without storing credentials
+- **Environment Files**: Automatic generation of `.env`, `.env.dev`, `.env.prod`, and `.env.local`
+- **Git Security**: Automatic updates to `.gitignore` and `.cursorignore` to exclude `.env*` files
+- **Access Tokens**: Placeholder tokens that should be replaced with proper token management
+
+### 💰 Cost Management
+
+Estimated monthly costs (US East 2):
+- **Azure OpenAI**: ~$50-200/month (depending on usage)
+- **Container Registry**: ~$5/month
+- **Log Analytics**: ~$2-10/month
+- **Application Insights**: ~$2-10/month
+- **Container Apps Environment**: ~$10-50/month
+- **Managed Identities**: Free
+
+**Total**: ~$70-280/month
+
+> [!IMPORTANT]
+> Always run the teardown script when not actively developing to avoid costs.
+
+For detailed information about the infrastructure scripts, see [scripts/README.md](scripts/README.md).
+
 ## Clean up
 
 To clean up all the Azure resources created by this sample:
@@ -156,6 +232,11 @@ To clean up all the Azure resources created by this sample:
 2. When asked if you are sure you want to continue, enter `y`
 
 The resource group and all the resources will be deleted.
+
+**Alternative (CLI approach):**
+```bash
+./scripts/teardown-infrastructure.sh
+```
 
 ## Advanced Setup
 

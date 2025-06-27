@@ -1,0 +1,51 @@
+{
+  "agent": {
+    "name": "travel-agent",
+    "version": "1.0.0",
+    "description": "AI Travel Agent for planning and booking travel experiences",
+    "domain": "travel",
+    "capabilities": [
+      "customer_query_understanding",
+      "destination_recommendation", 
+      "itinerary_planning",
+      "travel_booking_assistance"
+    ]
+  },
+  "tools": {
+    "required": [
+      "echo-ping",
+      "customer-query", 
+      "destination-recommendation",
+      "itinerary-planning"
+    ],
+    "optional": [
+      "web-search",
+      "code-evaluation",
+      "model-inference"
+    ]
+  },
+  "workflow": {
+    "primary": "travel_planning_workflow",
+    "fallback": "basic_query_workflow"
+  },
+  "prompts": {
+    "system": "You are an expert travel agent with deep knowledge of destinations, accommodations, and travel planning. Help customers plan their perfect trip.",
+    "capabilities": "I can help you with destination recommendations, itinerary planning, travel booking, and answering travel-related questions.",
+    "examples": [
+      "Plan a family vacation to Chicago",
+      "Find beach destinations in my budget",
+      "Create a cultural tour of Europe"
+    ]
+  },
+  "deployment": {
+    "resource_group_suffix": "travel",
+    "container_apps": [
+      "travel-agent-api",
+      "travel-agent-ui"
+    ],
+    "environment_variables": {
+      "AGENT_TYPE": "travel",
+      "AGENT_VERSION": "1.0.0"
+    }
+  }
+} 

@@ -1,0 +1,92 @@
+{
+  "tool_mappings": {
+    "echo-ping": {
+      "purpose": "testing_and_validation",
+      "priority": "low",
+      "usage": "Connectivity testing and basic validation",
+      "required": false
+    },
+    "customer-query": {
+      "purpose": "query_understanding",
+      "priority": "high",
+      "usage": "Extract travel preferences and intent from customer messages",
+      "required": true,
+      "tools": [
+        "extract_preferences",
+        "understand_intent",
+        "parse_constraints"
+      ]
+    },
+    "destination-recommendation": {
+      "purpose": "destination_search",
+      "priority": "high", 
+      "usage": "Recommend travel destinations based on preferences",
+      "required": true,
+      "tools": [
+        "search_destinations",
+        "get_destinations_by_activity",
+        "get_destinations_by_budget",
+        "get_destinations_by_season"
+      ]
+    },
+    "itinerary-planning": {
+      "purpose": "itinerary_creation",
+      "priority": "high",
+      "usage": "Create detailed travel itineraries and plans",
+      "required": true,
+      "tools": [
+        "create_itinerary",
+        "plan_activities",
+        "suggest_accommodations"
+      ]
+    },
+    "web-search": {
+      "purpose": "live_information",
+      "priority": "medium",
+      "usage": "Search for current travel information and prices",
+      "required": false,
+      "tools": [
+        "search_web",
+        "get_latest_prices",
+        "find_current_events"
+      ]
+    },
+    "code-evaluation": {
+      "purpose": "custom_logic",
+      "priority": "low",
+      "usage": "Execute custom travel planning logic when needed",
+      "required": false,
+      "tools": [
+        "execute_code",
+        "calculate_costs",
+        "optimize_routes"
+      ]
+    },
+    "model-inference": {
+      "purpose": "local_ai",
+      "priority": "low",
+      "usage": "Local AI processing for travel recommendations",
+      "required": false,
+      "tools": [
+        "local_inference",
+        "custom_recommendations"
+      ]
+    }
+  },
+  "workflow_integration": {
+    "travel_planning_workflow": [
+      "customer-query",
+      "destination-recommendation", 
+      "itinerary-planning",
+      "web-search"
+    ],
+    "basic_query_workflow": [
+      "customer-query",
+      "echo-ping"
+    ],
+    "destination_search_workflow": [
+      "customer-query",
+      "destination-recommendation"
+    ]
+  }
+} 

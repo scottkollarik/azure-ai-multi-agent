@@ -1,0 +1,81 @@
+{
+  "agent": {
+    "name": "{{AGENT_NAME}}",
+    "version": "1.0.0",
+    "description": "{{AGENT_DESCRIPTION}}",
+    "domain": "{{AGENT_DOMAIN}}",
+    "capabilities": [
+      "{{CAPABILITY_1}}",
+      "{{CAPABILITY_2}}"
+    ],
+    "inherits_from": "base-agent"
+  },
+  "tools": {
+    "required": [
+      "echo-ping"
+    ],
+    "optional": [
+      "web-search",
+      "code-evaluation",
+      "model-inference"
+    ]
+  },
+  "workflow": {
+    "primary": "{{PRIMARY_WORKFLOW}}",
+    "fallback": "basic_query_workflow"
+  },
+  "prompts": {
+    "system": "{{SYSTEM_PROMPT}}",
+    "capabilities": "{{CAPABILITIES_DESCRIPTION}}",
+    "examples": [
+      "{{EXAMPLE_1}}",
+      "{{EXAMPLE_2}}",
+      "{{EXAMPLE_3}}"
+    ]
+  },
+  "deployment": {
+    "resource_group_suffix": "{{AGENT_NAME}}",
+    "container_apps": [
+      "{{AGENT_NAME}}-api",
+      "{{AGENT_NAME}}-ui"
+    ],
+    "environment_variables": {
+      "AGENT_TYPE": "{{AGENT_NAME}}",
+      "AGENT_VERSION": "1.0.0"
+    }
+  },
+  "llm_providers": {
+    "azure_ai": {
+      "enabled": true,
+      "config": {
+        "model": "gpt-4o-mini",
+        "deployment": "gpt-4o-mini",
+        "api_version": "2024-07-18"
+      }
+    },
+    "ollama": {
+      "enabled": false,
+      "config": {
+        "model": "llama3.2",
+        "endpoint": "http://localhost:11434"
+      }
+    },
+    "docker_models": {
+      "enabled": false,
+      "config": {
+        "model": "ai/phi4:14B-Q4_0",
+        "endpoint": "http://localhost:12434/engines/llama.cpp/v1"
+      }
+    }
+  },
+  "search_providers": {
+    "bing": {
+      "enabled": true,
+      "rate_limit": "1000/hour"
+    },
+    "duckduckgo": {
+      "enabled": false,
+      "rate_limit": "100/hour"
+    }
+  }
+} 

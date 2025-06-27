@@ -1,0 +1,17 @@
+{
+  "agents": {
+    "travel-agent": {
+      "name": "travel-agent",
+      "domain": "travel",
+      "created": "2024-01-01T00:00:00Z",
+      "status": "active",
+      "config_path": "agents/travel-agent/config/agent-config.json",
+      "description": "AI Travel Agent for planning and booking travel experiences"
+    }
+  },
+  "metadata": {
+    "last_updated": "2024-01-01T00:00:00Z",
+    "version": "1.0.0",
+    "framework_version": "1.0.0"
+  }
+} 

@@ -269,3 +269,36 @@ We encourage you to join our Azure AI Foundry Developer Community​ to share yo
   <img src="./ai-foundry-developer-community-cta.png" alt="Join us on Discord" width="1000px" />
 </div>
 
+# Documentation Structure
+
+## Organization
+
+### 📁 `daily-summaries/` - Daily Development Summaries
+- **Progress tracking:** Daily accomplishments and discoveries
+- **Troubleshooting reference:** Solutions to common problems
+- **Configuration documentation:** Environment setup and changes
+- **Development history:** Chronological record of project evolution
+
+**Example:** `2025-06-25-azure-ai-travel-agents-setup-and-chaos-agent-vision.md`
+
+### 📁 `concepts/` - **MOVED TO IDEAS FOLDER**
+*Note: Conceptual whitepapers and innovative ideas have been moved to `/Users/vibeulator/Documents/GitHub/Ideas/azure-ai-travel-agents-concepts/`*
+
+This includes:
+- Context Window Shifting Automation concept
+- Weird-Media Chaos Agent vision papers
+- Other innovative technical concepts
+
+## Why This Organization?
+
+- **Daily summaries:** Stay with the project for development reference
+- **Conceptual ideas:** Moved to dedicated Ideas folder for broader innovation work
+- **Clear separation:** Project-specific vs. broader innovative thinking
+- **Better organization:** Ideas can be cross-referenced across multiple projects
+
+## Usage
+
+- **Daily work:** Use `daily-summaries/` for chronological development records
+- **Innovative concepts:** Check your Ideas folder for broader conceptual work
+- **Cross-references:** Link between daily summaries and conceptual ideas when relevant
+

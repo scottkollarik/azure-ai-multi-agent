@@ -1,0 +1,95 @@
+{
+  "framework": {
+    "name": "azure-ai-multi-agent",
+    "version": "1.0.0",
+    "description": "Multi-Agent Framework for Azure AI Foundry",
+    "type": "scaffolding"
+  },
+  "capabilities": {
+    "multi_agent_support": true,
+    "hot_swappable_llm": true,
+    "local_llm_support": true,
+    "mcp_tool_integration": true,
+    "azure_deployment": true,
+    "local_development": true
+  },
+  "llm_providers": {
+    "azure_ai": {
+      "enabled": true,
+      "default": true,
+      "models": ["gpt-4o-mini", "gpt-4o", "gpt-35-turbo"],
+      "config": {
+        "api_version": "2024-07-18",
+        "endpoint_template": "https://{resource}.openai.azure.com/"
+      }
+    },
+    "ollama": {
+      "enabled": true,
+      "default": false,
+      "models": ["llama3.2", "llama3.1", "phi3", "mistral"],
+      "config": {
+        "endpoint": "http://localhost:11434",
+        "api_version": "v1"
+      }
+    },
+    "docker_models": {
+      "enabled": true,
+      "default": false,
+      "models": ["ai/phi4:14B-Q4_0", "ai/llama3.2:8B-Q4_0"],
+      "config": {
+        "endpoint_template": "http://localhost:12434/engines/llama.cpp/v1"
+      }
+    }
+  },
+  "search_providers": {
+    "bing": {
+      "enabled": true,
+      "default": true,
+      "rate_limit": "1000/hour",
+      "config": {
+        "api_version": "v7.0"
+      }
+    },
+    "duckduckgo": {
+      "enabled": true,
+      "default": false,
+      "rate_limit": "100/hour",
+      "config": {
+        "api_version": "v1"
+      }
+    }
+  },
+  "deployment": {
+    "azure": {
+      "enabled": true,
+      "services": ["container-apps", "container-registry", "openai", "monitoring"],
+      "regions": ["eastus2", "westus2", "swedencentral", "northeurope"]
+    },
+    "local": {
+      "enabled": true,
+      "services": ["docker-compose", "ollama", "docker-model-runner"]
+    }
+  },
+  "templates": {
+    "agents": {
+      "base": "templates/agents/base-agent-config.json",
+      "tool_mapping": "templates/agents/base-tool-mapping.json"
+    },
+    "tools": {
+      "nodejs": "templates/tools/nodejs",
+      "dotnet": "templates/tools/dotnet",
+      "python": "templates/tools/python"
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "providers": ["application-insights", "log-analytics"],
+    "metrics": ["response_time", "error_rate", "throughput", "cost"]
+  },
+  "security": {
+    "managed_identity": true,
+    "key_vault_integration": true,
+    "rbac": true,
+    "network_isolation": true
+  }
+} 
